@@ -1,0 +1,260 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  background: #f4f6fa;
+  color: #1f2937;
+  line-height: 1.55;
+}
+
+.page-header {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: #fff;
+  padding: 28px 32px 24px;
+}
+
+.page-header h1 {
+  margin: 0 0 6px;
+  font-size: 24px;
+}
+
+.subtitle {
+  margin: 0;
+  opacity: 0.88;
+  font-size: 13px;
+}
+
+main {
+  max-width: 1180px;
+  margin: 24px auto 40px;
+  padding: 0 20px;
+  display: grid;
+  gap: 20px;
+}
+
+.panel {
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(15, 23, 42, 0.08);
+  padding: 20px 24px;
+}
+
+.panel h2 {
+  margin: 0 0 14px;
+  font-size: 17px;
+  color: #1e3a8a;
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  gap: 12px 18px;
+}
+
+.controls-grid label {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  color: #475569;
+  gap: 5px;
+}
+
+.controls-grid select,
+.controls-grid input {
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #fff;
+}
+
+.button-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 18px;
+}
+
+button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: filter 0.15s ease;
+}
+
+button:hover {
+  filter: brightness(1.08);
+}
+
+button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.primary { background: #2563eb; color: #fff; }
+.warning { background: #d97706; color: #fff; }
+.secondary { background: #0f766e; color: #fff; }
+
+.hint {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: #64748b;
+}
+
+.result-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.result-marker {
+  font-size: 12px;
+  background: #e2e8f0;
+  color: #334155;
+  padding: 4px 10px;
+  border-radius: 999px;
+  white-space: nowrap;
+}
+
+.banner {
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  margin-bottom: 14px;
+}
+
+.banner.info { background: #dbeafe; color: #1e40af; }
+.banner.warn { background: #fef3c7; color: #92400e; }
+.banner.error { background: #fee2e2; color: #991b1b; }
+.banner.ok { background: #d1fae5; color: #065f46; }
+.hidden { display: none; }
+
+.placeholder {
+  color: #94a3b8;
+  font-size: 14px;
+}
+
+h3 {
+  font-size: 15px;
+  margin: 22px 0 8px;
+  color: #0f172a;
+  border-left: 4px solid #2563eb;
+  padding-left: 8px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin: 8px 0 6px;
+}
+
+th, td {
+  border: 1px solid #e2e8f0;
+  padding: 7px 9px;
+  text-align: right;
+}
+
+th {
+  background: #f1f5f9;
+  color: #334155;
+  font-weight: 600;
+}
+
+th:first-child, td:first-child {
+  text-align: left;
+}
+
+.tag {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.tag-high { background: #fee2e2; color: #b91c1c; }
+.tag-mid { background: #fef3c7; color: #a16207; }
+.tag-low { background: #dcfce7; color: #15803d; }
+.tag-defect { background: #fecaca; color: #991b1b; }
+.tag-pass { background: #d1fae5; color: #065f46; }
+
+.kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.kpi {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+
+.kpi .label {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.kpi .value {
+  font-size: 20px;
+  font-weight: 700;
+  color: #0f172a;
+  margin-top: 2px;
+}
+
+.kpi .sub {
+  font-size: 12px;
+  color: #64748b;
+}
+
+.method-note {
+  background: #f8fafc;
+  border-left: 4px solid #0f766e;
+  padding: 10px 14px;
+  font-size: 13px;
+  border-radius: 0 6px 6px 0;
+  margin: 10px 0;
+}
+
+.warning-box {
+  background: #fff7ed;
+  border: 1px solid #fdba74;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #9a3412;
+}
+
+.sample-scroll {
+  max-height: 320px;
+  overflow: auto;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.sample-scroll table {
+  margin: 0;
+}
+
+.page-footer {
+  text-align: center;
+  color: #94a3b8;
+  font-size: 12px;
+  padding: 18px 0 28px;
+}
+
+code {
+  background: #f1f5f9;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-size: 12px;
+}

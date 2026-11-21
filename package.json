@@ -1,0 +1,15 @@
+{
+  "name": "stratified-qc-demo",
+  "version": "1.0.0",
+  "description": "按工段/班次/风险分层的抽样质检与总体缺陷率估计演示（仅使用 Node.js 内置模块）",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "MIT"
+}

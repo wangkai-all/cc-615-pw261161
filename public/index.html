@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>分层抽样质检与总体缺陷率估计演示</title>
+  <link rel="stylesheet" href="/public/styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>分层抽样质检与总体缺陷率估计</h1>
+    <p class="subtitle">
+      底册按工段 × 班次 × 风险分层 · 抽中概率全程保留 · 空层与撤回复核可模拟 ·
+      全部虚构数据、种子可重复
+    </p>
+  </header>
+
+  <main>
+    <section class="panel controls-panel">
+      <h2>操作控制台</h2>
+      <div class="controls-grid">
+        <label>
+          分配方式
+          <select id="allocationMethod">
+            <option value="proportional">等比分层（按 Nₕ 比例）</option>
+            <option value="optimal">优化分配（Neyman，Nₕ·Sₕ）</option>
+          </select>
+        </label>
+        <label>
+          总样本量 n
+          <input id="sampleSize" type="number" min="1" value="60" />
+        </label>
+        <label>
+          底册总量 N
+          <input id="populationSize" type="number" min="1" value="600" />
+        </label>
+        <label>
+          空层模拟对象
+          <select id="emptyStratum">
+            <option value="低风险" selected>低风险层（整层标识损坏）</option>
+            <option value="中风险">中风险层</option>
+            <option value="高风险">高风险层</option>
+          </select>
+        </label>
+        <label>
+          撤回复核样本数
+          <input id="withdrawCount" type="number" min="0" value="2" />
+        </label>
+        <label>
+          估计变体
+          <select id="estimateVariant">
+            <option value="full" selected>full（要求每层可估）</option>
+            <option value="renorm">renorm（可估层重归一化）</option>
+            <option value="conservative">conservative（空层按 [0,1] 保守区间）</option>
+          </select>
+        </label>
+      </div>
+      <div class="button-row">
+        <button id="btnSample" class="primary">生成分层抽样结果</button>
+        <button id="btnIncident" class="warning">模拟空层和撤回复核</button>
+        <button id="btnEstimate" class="secondary">查看估计组成</button>
+      </div>
+      <p class="hint">
+        种子固定（registry-2026w47 / sample-2026w47 / incident-2026w47），相同参数反复点击得到完全相同的记录。
+      </p>
+    </section>
+
+    <!-- 业务结果区：data-evidence-result 随每次真实操作更新，便于核对操作前后内容 -->
+    <section id="resultArea" class="panel result-panel" data-evidence-result="init:尚未执行任何操作">
+      <div class="result-head">
+        <h2>业务结果区</h2>
+        <span id="resultMarker" class="result-marker">等待操作</span>
+      </div>
+      <div id="statusBanner" class="banner hidden"></div>
+      <div id="resultContent">
+        <p class="placeholder">点击上方按钮执行真实功能后，这里展示分层抽样、异常情景与估计组成。</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <span>仅使用 Node.js 内置模块 · 虚构记录演示 · 不代表任何真实产线</span>
+  </footer>
+
+  <script src="/public/app.js"></script>
+</body>
+</html>
